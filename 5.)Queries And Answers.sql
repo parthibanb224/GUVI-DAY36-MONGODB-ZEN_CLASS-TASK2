@@ -30,27 +30,14 @@ db.users.aggregate([
 
 --Answer
 
-db.users.aggregate([
-  {
-    $lookup: {
-      from: "mentors",
-      localField: "mentorId",
-      foreignField: "mentorId",
-      as: "mentorInfo",
-    },
+{
+  _id: {
+    mentorId: [
+      1
+    ],
+    mentorName: [
+      'sathish'
+    ]
   },
-  {
-    $group: {
-      _id: {
-        mentorId: "$mentorInfo.mentorId",
-        mentorName: "$mentorInfo.mentorName",
-      },
-      menteeCount: { $sum: 1 },
-    },
-  },
-  {
-    $match: {
-      menteeCount: { $gt: 15 },
-    },
-  },
-]);
+  menteeCount: 16
+}

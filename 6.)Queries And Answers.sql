@@ -3,6 +3,9 @@
 
 --Query
 
+
+
+
 db.attendance.aggregate([
   {
     $lookup: {
@@ -30,14 +33,14 @@ db.attendance.aggregate([
       $and: [
         {
           $and: [
-            { "topicInfo.topicDate": { $gt: new Date("30-sep-2020") } },
-            { "topicInfo.topicDate": { $lt: new Date("01-nov-2020") } },
+            { "topicInfo.topicDate": { $gt: new Date("15-oct-2020") } },
+            { "topicInfo.topicDate": { $lt: new Date("31-oct-2020") } },
           ],
         },
         {
           $and: [
-            { "taskInfo.dueDate": { $gt: new Date("30-sep-2020") } },
-            { "taskInfo.dueDate": { $lt: new Date("01-nov-2020") } },
+            { "taskInfo.dueDate": { $gt: new Date("15-oct-2020") } },
+            { "taskInfo.dueDate": { $lt: new Date("31-oct-2020") } },
           ],
         },
       ],
@@ -54,5 +57,5 @@ db.attendance.aggregate([
 --Answer
 
 {
-  'No_of_students_absent & task not submitted': 11
+  'No_of_students_absent & task not submitted': 6
 }
